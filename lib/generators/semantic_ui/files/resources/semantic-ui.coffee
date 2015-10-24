@@ -1,0 +1,5 @@
+require('file?name=semantic.css!semantic-ui/dist/semantic.css')
+require('expose?jQuery!jquery')
+require('expose?$!jquery')
+require('semantic-ui/dist/semantic')
+#require('file?name=common.css!./common.css')
