@@ -77,8 +77,8 @@ module SemanticUi
 
       def bower_dependencies
         deps = Rails::SemanticUI::Dependencies.new Rails.configuration.webpack.bower.dependencies
-        deps.add('normalize-css', '~3.0'}
-        deps.add('semantic-ui', '~2.0'}
+        deps.add('normalize-css', '~3.0')
+        deps.add('semantic-ui', '~2.0')
       end
     end
   end
