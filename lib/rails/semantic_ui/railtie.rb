@@ -1,4 +1,5 @@
-require 'rails/webpack'
+require 'rails/semantic_ui'
+require 'rails/webpack/railtie'
 require 'rails'
 
 module Rails::SemanticUI
@@ -7,10 +8,6 @@ module Rails::SemanticUI
 
     rake_tasks do
       load 'tasks/semantic_ui.rake'
-      #load 'tasks/gulp.rake'
-      #load 'tasks/npm.rake'
-      #load 'tasks/prepare.rake'
-      #load 'tasks/webpack.rake'
     end
   end
 end
