@@ -2,23 +2,34 @@ require 'rails/semantic_ui'
 
 module SemanticUi
   class InstallGenerator < Rails::Generators::Base
+    include Rails::Webpack::Actions
     source_root File.expand_path('files', __dir__)
 
     def install_tasks
       copy_file 'semantic-ui.coffee', 'app/webpack/tasks/semantic-ui.coffee'
     end
 
-    def add_bower_dependencies
-      template = "\\1#{bower_dependencies.to_s}\n"
+    def update_dependencies
+      dependencies do
+        bower 'normalize-css', '~3.0'
+        bower 'semantic-ui', '~2.0'
 
-      gsub_file 'config/webpack.yml', /(bower:\s*\n(\s+)dependencies:\s*\n)(\s+[^\n]+\n)*/m, template
+        npm_develop 'file-loader', '~0.8'
+        npm_develop 'expose-loader', '~0.7'
+      end
     end
 
-    def add_npm_dev_dependencies
-      template = "\\1#{gulp_loaders.to_s}\n"
-
-      gsub_file 'config/webpack.yml', /(npm:\s*\n([-~a-zA-Z0-9\s:'+\/@\.\[\]]+\n)+\s{2}develop_dependencies:\s*\n)(\s{4,}[\s\S]+\n)*/m, template
-    end
+#    def add_bower_dependencies
+#      template = "\\1#{bower_dependencies.to_s}\n"
+#
+#      gsub_file 'config/webpack.yml', /(bower:\s*\n(\s+)dependencies:\s*\n)(\s+[^\n]+\n)*/m, template
+#    end
+#
+#    def add_npm_dev_dependencies
+#      template = "\\1#{gulp_loaders.to_s}\n"
+#
+#      gsub_file 'config/webpack.yml', /(npm:\s*\n([-~a-zA-Z0-9\s:'+\/@\.\[\]]+\n)+\s{2}develop_dependencies:\s*\n)(\s{4,}[\s\S]+\n)*/m, template
+#    end
 
     def install_assets
       empty_directory 'app/webpack/src/statics'
