@@ -1,6 +1,8 @@
 Rails Semantic UI
 =================
 
+[![Code Climate](https://codeclimate.com/github/astral1/rails-semantic-ui/badges/gpa.svg)](https://codeclimate.com/github/astral1/rails-semantic-ui) [![Gem Version](https://badge.fury.io/rb/rails-semantic-ui.svg)](https://badge.fury.io/rb/rails-semantic-ui)
+
 Rails에서 Semantic UI 사용을 편하게 하기 위해 [astral1/rails-webpack](https://github.com/astral1/rails-webpack)에 기반해 만든 Plugin.
 
 Install
