@@ -42,7 +42,7 @@ rails generate semantic_ui:install
 rails generate semantic_ui:layout [NAME]
 ```
 
-- --force (-f) - 존재하는 레이아웃을 교체하지 않는다. 기본값이 `false`
+- --force (-f) - 존재하는 레이아웃을 덮어쓴다. 기본값은 `false`
 
 지정된 이름으로 semantic-ui 기본 layout을 생성한다.
 
