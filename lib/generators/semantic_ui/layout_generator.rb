@@ -5,7 +5,7 @@ module SemanticUi
     class_option :force, type: :boolean, default: false, aliases: :f
 
     def overwrite_layout
-      copy_file 'layout.slim', "app/views/layout/#{layout_name.underscore}.html.slim", force: options[:force]
+      copy_file 'layout.slim', "app/views/layouts/#{layout_name.underscore}.html.slim", force: options[:force]
     end
   end
 end
