@@ -1,6 +1,8 @@
 Rails Semantic UI
 =================
 
+[![Code Climate](https://codeclimate.com/github/astral1/rails-semantic-ui/badges/gpa.svg)](https://codeclimate.com/github/astral1/rails-semantic-ui) [![Gem Version](https://badge.fury.io/rb/rails-semantic-ui.svg)](https://badge.fury.io/rb/rails-semantic-ui)
+
 Rails에서 Semantic UI 사용을 편하게 하기 위해 [astral1/rails-webpack](https://github.com/astral1/rails-webpack)에 기반해 만든 Plugin.
 
 Install
@@ -40,7 +42,7 @@ rails generate semantic_ui:install
 rails generate semantic_ui:layout [NAME]
 ```
 
-- --force (-f) - 존재하는 레이아웃을 교체하지 않는다. 기본값이 `false`
+- --force (-f) - 존재하는 레이아웃을 덮어쓴다. 기본값은 `false`
 
 지정된 이름으로 semantic-ui 기본 layout을 생성한다.
 

@@ -1,0 +1,19 @@
+= form_for @<%= singular_table_name %>, html: {class: 'ui fluid form'} do |f|
+  - if @<%= singular_table_name %>.errors.any?
+    .ui.negative.message
+      i.close.icon
+      .header = "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
+      ul.list
+        - @<%= singular_table_name %>.errors.full_messages.each do |message|
+        li = message
+
+<% attributes.each do |attribute| -%>
+  .field
+    = f.label :<%= attribute.name %>
+    = f.<%= attribute.field_type %> :<%= attribute.name %>
+<% end -%>
+  .actions
+    = f.submit class: 'ui primary button'
+    - if action_name == 'edit'
+      = link_to 'Show', @<%= singular_table_name %>, class: 'ui button'
+    = link_to 'Back', <%= index_helper %>_path, class: 'ui button'
