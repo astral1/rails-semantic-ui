@@ -1,0 +1,18 @@
+- if notice
+  .ui.positive.message
+    i.close.icon
+    .header Success!
+    p = notice
+
+.ui.large.list
+<% attributes.each do |attribute| -%>
+  .item
+    i.right.triangle.icon
+    .content
+      .header <%= attribute.human_name %>
+      .description = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'ui button'
+'
+= link_to 'Back', <%= index_helper %>_path, class: 'ui button'

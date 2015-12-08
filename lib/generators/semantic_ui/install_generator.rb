@@ -25,6 +25,13 @@ module SemanticUi
       copy_file 'resources/normalize.coffee', 'app/webpack/src/statics/normalize.coffee'
     end
 
+    def install_scaffold
+      empty_directory 'lib/templates/slim/scaffold'
+      %w{_form edit index new show}.each do |view|
+        copy_file "scaffold/slim/#{view}.html.slim", "lib/templates/slim/scaffold/#{view}.html.slim"
+      end
+    end
+
     def combine_semantic_ui
       inject_into_file 'app/webpack/src/pages/common.coffee', after: "# run webpack pipeline against files in src/pages automatically\n" do 
         "require 'statics/normalize.coffee'\nrequire 'statics/semantic-ui.coffee'\n"
@@ -43,16 +50,16 @@ module SemanticUi
 
       pattern = case js_ext
                 when 'coffee'
-                  "#\n"
+                  "#=\n"
                 else 'js'
-                  "//\n"
+                  "//=\n"
                 end
 
-      inject_into_file css, after: " *\n" do
+      inject_into_file css, before: " *=\n" do
         " *= require normalize\n *= require semantic\n"
       end
 
-      inject_into_file js, after: pattern do
+      inject_into_file js, before: pattern do
         "#= require common.bundle\n"
       end 
     end
