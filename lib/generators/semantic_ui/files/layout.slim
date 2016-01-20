@@ -29,7 +29,6 @@ html
                 .item Link Item
                 .item Link Item
             .item Link Item
-        = link_to 'Hosts', hosts_path, class: 'item'
         .right.menu
           .ui.search.item
             .ui.inverted.transparent.icon.input
@@ -42,21 +41,18 @@ html
             i.dropdown.icon
             .menu
               .header Data Administration
-              = link_to 'Tags', tags_path, class: 'item'
-              = link_to 'Schema', schemas_path, class: 'item'
               .divider
               .header Configuration
-              = link_to 'Server Types', server_types_path, class: 'item'
 
-    .ui.main.container
-      == yield
-    .ui.inverted.vertical.footer.segment
-      .ui.center.aligned.container
-        img.ui.centered.medium.image src="#{asset_path 'saltstack-full.png'}"
-        .ui.horizontal.inverted.small.divided.link.list
-          a.item href='https://docs.saltstack.com/en/latest/' Documents
-          a.item href='#' Contact Us
-          a.item href='#' Privacy Policy
+    .pusher
+      .ui.main.container
+        == yield
+      .ui.inverted.vertical.footer.segment
+        .ui.center.aligned.container
+          .ui.horizontal.inverted.small.divided.link.list
+            a.item href='https://docs.saltstack.com/en/latest/' Documents
+            a.item href='#' Contact Us
+            a.item href='#' Privacy Policy
 
     == javascript_include_tag 'application'
     - if content_for? :inline_script
