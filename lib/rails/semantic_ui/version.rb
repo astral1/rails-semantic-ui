@@ -1,5 +1,5 @@
 module Rails
   module SemanticUI
-    VERSION = '0.3.0'
+    VERSION = '0.4.0.dev1'
   end
 end
