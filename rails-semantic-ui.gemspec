@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
   s.add_dependency 'rails', '>= 5.0.0.beta1'
-  s.add_dependency 'rails-webpack', '>= 0.6.0.dev1'
+  s.add_dependency 'rails-webpack', '>= 0.6.0.dev2'
 end

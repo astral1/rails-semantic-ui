@@ -33,12 +33,12 @@ module SemanticUi
     end
 
     def combine_semantic_ui
-      inject_into_file 'app/webpack/src/pages/common.coffee', after: "# run webpack pipeline against files in src/pages automatically\n" do 
+      inject_into_file 'app/webpack/src/pages/core.coffee', after: "# run webpack pipeline against files in src/pages automatically\n" do 
         "require 'statics/normalize.coffee'\nrequire 'statics/semantic-ui.coffee'\n"
       end
       copy_file 'resources/normalize.coffee', 'app/webpack/src/statics/normalize.coffee'
 
-      inject_into_file 'app/webpack/src/pages/common.coffee', before: " *= require_self\n" do 
+      inject_into_file 'app/webpack/src/pages/core.coffee', before: " *= require_self\n" do 
         " *= require normailzie\n *= require semantic\n"
       end
     end
@@ -60,7 +60,7 @@ module SemanticUi
       end
 
       inject_into_file js, before: pattern do
-        "#= require common.bundle\n"
+        "#= require core.bundle\n"
       end 
     end
 
